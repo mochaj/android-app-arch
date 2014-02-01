@@ -1,10 +1,12 @@
-package com.app.arch;
+package com.app.arch.tst;
+
+import com.app.arch.BaseActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class MainActivity extends Activity {
+public class TestActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

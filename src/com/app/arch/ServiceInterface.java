@@ -1,20 +1,21 @@
 package com.app.arch;
 
-import com.app.arch.svc.IServiceBinder;
-import com.app.arch.svc.ServiceBinder;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 
+import com.app.arch.svc.IServiceBinder;
+import com.app.arch.svc.RemoteService;
+import com.app.arch.svc.ServiceBinder;
+
 public class ServiceInterface implements ServiceConnection {
 
-    private ServiceBinder mBinder;
+    private ServiceBinder mBinder = null;
 
-    public void bind(Activity activity, Intent intent) {
-        activity.bindService(intent, this, 0);
+    public void bind(Activity activity) {
+        activity.bindService(new Intent(activity, RemoteService.class), this, 0);
     }
 
     public void unbind(Activity activity) {

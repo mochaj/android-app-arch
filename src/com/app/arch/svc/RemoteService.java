@@ -6,7 +6,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
-import com.app.arch.MainActivity;
+import com.app.arch.BaseActivity;
 
 public class RemoteService extends Service {
 
@@ -29,7 +29,7 @@ public class RemoteService extends Service {
     private void makeForeground() {
         Notification notification = new Notification(R.drawable.icon,
                 getText(R.string.ticker_text), System.currentTimeMillis());
-        Intent notificationIntent = new Intent(this, MainActivity.class);
+        Intent notificationIntent = new Intent(this, BaseActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
                 notificationIntent, 0);
         notification.setLatestEventInfo(this,
