@@ -2,7 +2,7 @@ package com.app.arch.svc;
 
 import com.app.arch.svc.AppCursor;
 
-interface ServiceBinder {
+interface IServiceBinder {
 
     int getPid();
 

@@ -10,9 +10,18 @@ import com.app.arch.MainActivity;
 
 public class RemoteService extends Service {
 
+    private ServiceBinder mBinder;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        mBinder = new ServiceBinder();
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
     // thread pool for multiprocessing
