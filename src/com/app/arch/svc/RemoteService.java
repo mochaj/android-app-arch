@@ -20,11 +20,25 @@ public class RemoteService extends Service {
     }
 
     @Override
+    public void onStart(Intent intent, int startId) {
+        handleCommand(intent, startId);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        handleCommand(intent, startId);
+        return START_NOT_STICKY;
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
 
-    // thread pool for multiprocessing
+    private void handleCommand(Intent intent, int startId) {
+        // process
+        stopSelfResult(startId);
+    }
 
     private void makeForeground() {
         Notification notification = new Notification(R.drawable.icon,
